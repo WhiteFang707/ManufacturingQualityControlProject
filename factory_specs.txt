@@ -1,0 +1,18 @@
+LINE A — makes structural brackets
+  Primary supplier: Supplier 1 (steel stock)
+  Backup supplier: Supplier 2
+  Inspectors: Inspector 1 (Morning), Inspector 2 (Afternoon), Inspector 3 (Night)
+  Likely defect types: Dimensional, Assembly
+
+LINE B — makes surface panels
+  Primary supplier: Supplier 2 (sheet metal)
+  Backup supplier: Supplier 4
+  Inspectors: Inspector 1 (Morning), Inspector 3 (Afternoon), Inspector 4 (Night)
+  Likely defect types: Surface, Dimensional
+
+LINE C — makes composite sub-assemblies
+  Primary supplier: Supplier 3 (the bad one)
+  Backup supplier: Supplier 5
+  Inspectors: Inspector 2 (Morning), Inspector 4 (Afternoon), Inspector 3 (Night)
+  Likely defect types: Material, Assembly
+
