@@ -15,30 +15,3 @@ LINE C — makes composite sub-assemblies
   Backup supplier: Supplier 5
   Inspectors: Inspector 2 (Morning), Inspector 4 (Afternoon), Inspector 3 (Night)
   Likely defect types: Material, Assembly
-
-def error_addition():
-    #random numbers been negative instead of positive for unit produced
-    mask = np.random.uniform(0, 1, size=len(data)) <= 0.98
-    data['unit_produced'] = data['unit_produced'].where(mask, -data['unit_produced'])
-    # random numbers been negative instead of positive for defect found
-    mask = np.random.uniform(0, 1, size=len(data)) <= 0.99
-    data['defect_found'] = data['defect_found'].where(mask, -data['defect_found'])
-    mask = np.random.uniform(0, 1, size=len(data)) <= 0.999
-    data['defect_found'] = data['defect_found'].where(mask, data['defect_found']*100)
-    # inspector 3 has lower rate
-
-# Defect profile per line: which defect types occur and how often (weights must sum to 1).
-DEFECT_WEIGHTS = {
-    'A': {
-        'types':   ['Dimensional', 'Assembly', 'Surface', 'Material'],
-        'weights': [0.55,           0.30,        0.10,      0.05],
-    },
-    'B': {
-        'types':   ['Surface', 'Dimensional', 'Assembly', 'Material'],
-        'weights': [0.60,       0.25,          0.10,       0.05],
-    },
-    'C': {
-        'types':   ['Material', 'Assembly', 'Dimensional', 'Surface'],
-        'weights': [0.50,        0.30,       0.15,          0.05],
-    },
-}
