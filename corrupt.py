@@ -6,7 +6,7 @@ The types are missing values, wrong types, out-of-range values, duplicates rows.
 Which each will have its own function.
 
 Input: 'data.csv'
-Output: 'corrupt_data.csv'
+Output: 'corrupt.csv'
 """
 
 import pandas as pd
@@ -60,9 +60,9 @@ def injecting_values_errors(df: pd.DataFrame, frac: float) -> None:
     # For each targeted row, pick a random lamda function or value.
     function_map = [
         lambda x : -x,
-        lambda x : 1000 * x,
-        lambda x : -1000 * x,
-        lambda x : np.nan
+        lambda x: 1000 * x,
+        lambda x: -1000 * x,
+        lambda x: np.nan
     ]
 
     df.loc[target_index, 'units_produced'] = df.loc[target_index, 'units_produced'].map(lambda x : np.random.choice(function_map)(x))
@@ -120,7 +120,7 @@ def main():
     injecting_date_formating_errors(data, frac=sp(mean=0.01, std=0.001))
     data = duplicate_row(data, frac=sp(mean=0.0005, std=0.001))
 
-    output_path = Path("data") / "corrupt_data.csv"
+    output_path = Path("data") / "corrupt.csv"
     data.to_csv(output_path, index=False)
 
 if __name__ == '__main__':

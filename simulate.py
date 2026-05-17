@@ -111,7 +111,7 @@ def generate_records() -> list[tuple]:
                 supplier  = SUPPLIER_MAP[line][shift]
                 inspector = INSPECTOR_MAP[line][shift]
 
-                records.append((date, shift, line, supplier, inspector, units, defects))
+                records.append((date, shift, line, supplier, inspector, int(units), defects))
 
     return records
 
